@@ -1,0 +1,19 @@
+<h1>COMERCIOS</h1>
+
+<div class="row">
+
+  <% @commerces.each do |commerce| %>
+    <div class="col-xs-6">
+      <div class="thumbnail">
+        <%= image_tag(commerce.logo) %>
+        <div class="caption">
+          <h3><p><%= commerce.name %></p></h3>
+        </div>
+        <% commerce.categories.each do |category| %>
+          <span class="label label-primary"><%= category%></span>
+        <% end %>  
+      </div>
+    </div>
+  <% end %>
+
+</div>
