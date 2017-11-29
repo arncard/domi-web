@@ -6,8 +6,9 @@ class CommerceDeserializer
     commerces = Array.new
     json_response[:data].map do |d|
       commerces << Commerce.new(d[:attributes], 
-                                get_commerce_categories(d[:relationships][:categories][:data], 
-                                                        all_included_categories))
+                                get_commerce_categories(
+																	d[:relationships][:categories][:data], 
+                                  all_included_categories))
     end
     commerces
   end
