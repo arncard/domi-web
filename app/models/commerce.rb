@@ -1,9 +1,10 @@
 class Commerce
 
-  attr_accessor :name, :email, :address, :website, 
-								:logo, :rating, :categories
+  attr_accessor :id, :name, :email, :address, :website, 
+								:logo, :rating, :categories, :reviews
 
-  def initialize(attributes, associations)
+  def initialize(id, attributes, associations)
+		@id					= id
     @name       = attributes[:name]
     @email      = attributes[:email]
     @address    = attributes[:address]

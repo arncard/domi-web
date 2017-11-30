@@ -4,13 +4,26 @@ class CommerceDeserializer
     all_included_categories = deserialize_associations_into_hash(json_response)
 
     commerces = Array.new
-    json_response[:data].map do |d|
-      commerces << Commerce.new(d[:attributes], 
-                                get_commerce_categories(
-																	d[:relationships][:categories][:data], 
-                                  all_included_categories))
+		if json_response[:data].is_a?(Array)
+			json_response[:data].map do |d|
+				commerces << Commerce.new(d[:id].to_i, d[:attributes], 
+																	get_commerce_categories(
+																		d[:relationships][:categories][:data], 
+																		all_included_categories)
+																 )
+			end
+
+			return commerces
+	  else
+			return Commerce.new(json_response[:data][:id].to_i, 
+													json_response[:data][:attributes], 
+													get_commerce_categories(
+														json_response[:data][:relationships][:categories][:data], 
+														all_included_categories)
+												 )
+				
     end
-    commerces
+
   end
 
 
