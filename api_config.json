@@ -1,7 +1,7 @@
 {
   "api_version": "v1",
-  "base_url": "http://localhost:3000",
-  "endpoints": {
+  "base_url": "http://api.domi.dev:3000",
+	"endpoints": {
     "commerces": "/commerces/"
   }
 }

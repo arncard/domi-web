@@ -21,14 +21,11 @@ class CommerceDeserializer
 														json_response[:data][:relationships][:categories][:data], 
 														all_included_categories)
 												 )
-				
     end
-
   end
 
 
   private 
-
 
     def self.get_commerce_categories(categories_data, all_included_categories)
       commerce_categories = Array.new
